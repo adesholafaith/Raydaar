@@ -9,29 +9,29 @@
 <body>
     <header class="header">
       <div class="header-nav">
-        <img src="./images/Raydaar.png" alt="" />
+        <img src="./images/Raydaar.png" alt="" class="logo"/>
         <nav>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="index.html#services">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#"><span style="color: #1845e7;">Contact</span></a></li>
             <li><a href="blog.html">Blog</a></li>
           </ul>
         </nav>
       <a href="about.html" style="text-decoration: none;"><button>About us</button></a>
+      <img class="icon-menu" src="./images/menu.svg" alt="" />
       </div>
     </header>
 
 
 
-   <section class="contact" id="contact">    
-    <div class="contact-card">
-        <h1 style="font-weight: bold; font-size: 5rem;">Contact Us</h1>
-        <h2>Send us a message. We typically reply within <span style="font-weight: bold; color: #111;">24 hours.</span></h2>
-    </div>
+   <section class="contact" id="contact">
+      <h1 class="heading">Contact Us</h1>
+        
       <div class="book">
         <div class="book-form">
+          <h2>Ready to get started?</h2>
           <form action="#" id="contact-form">
 
             <div class="name">
@@ -50,17 +50,7 @@
               <input type="text" name="name" class="form-input" placeholder="+234-XXX-XXX-XXXX" id="name" required/>
             </div>
           </div>
-          
-            <div>
-              <label for="subject" class="form-label">Service Needed</label>
-              <select class="form-input" name="subject" id="subject">
-                <option value="select">Select...</option>
-                <option value="web-design">Web Design / Development</option>
-                <option value="uiux-design">UI/UX Design</option>
-                <option value="graphics-design">Graphics Design</option>
-                <option value="branding">Branding & Consultation</option>
-              </select>
-            </div>
+
 
             <div>
               <label for="message" class="form-label">Message</label>
@@ -73,51 +63,59 @@
           </form>
         </div>
         
-      </div>
+        <div class="location">
+          
+          <div class="direct-message">
+              <h2>Send us a <span style="color: #1845e7;">direct message.</span></h2>
+              <div class="message-card">
+                  <a href="https://wa.me/message/KDS2WI6SCQ2JE1"  style="text-decoration: none;" target="_blank">
+                  <div class="chat-bubble whatsapp">
+                      <img src="images/whatsapp.png" alt="">
+                      <span>Whatsapp</span>
+                  </div>
+                  </a>
 
-      
-        <div class="direct-message">
-            <h2>Send us a <span style="color: #1845e7;">direct message</span></h2>
-            <div class="message-card">
-                <a href="https://wa.me/message/KDS2WI6SCQ2JE1"  style="text-decoration: none;" target="_blank">
-                <div class="chat-bubble whatsapp">
-                    <img src="images/whatsapp.png" alt="">
-                    <span>Whatsapp</span>
-                </div>
-                </a>
+                  <a href="https://www.instagram.com/direct/new/?username=raydaarhq" target="_blank" style="text-decoration: none;">
+                      <div class="chat-bubble instagram">
+                          <img src="images/IG.png" alt="">
+                          <span>Instagram</span>
+                      </div>
+                  </a>       
+              </div>
 
-                <a href="https://www.instagram.com/direct/new/?username=raydaarhq" target="_blank" style="text-decoration: none;">
-                    <div class="chat-bubble instagram">
-                        <img src="images/IG.png" alt="">
-                        <span>Instagram</span>
-                    </div>
-                </a>
-
+              <div class="message-card">
                 <a href="https://twitter.com/raydaarhq" target="_blank" style="text-decoration: none;">
                     <div class="chat-bubble twitter">
                         <img src="images/twitter.png" alt="">
                         <span>Twitter</span>
                     </div>
-                </a>
+                </a> 
+              </div>
+          </div>
 
-                <a href="https://mail.google.com/mail/?view=cm&to=raydaarhq@gmail.com" target="_blank" style="text-decoration: none;">
-                    <div class="chat-bubble gmail">
-                        <img src="images/gmail.png" alt="">
-                        <span>Gmail</span>
-                    </div>
-                </a>    
+          <div class="location-flex">
+            <div class="globe-text">
+              <img src="images/location.gif" alt="">
+              <h2>We operate without borders.</h2>
             </div>
+          </div>
+          
         </div>
+      </div>
+      <h2 class="contact-h2">We typically reply within <span style="font-weight: bold; color: #111;">24 hours.</span></h2>
     </section>
 
     <footer>
       <div class="footer-flex">
         <div class="footer-icons">
           <img class="footer-logo" src="./images/RAYDAAR White.png" alt="" />     
+          <div class="footer-res">
             <p>
               We create digital solutions that give </br> your brand great value and exposure.
             </p>     
-            <button onclick="window.location.href='index.html#services'">View Services</button>
+            <a href="#services"><button>View Services</button></a>
+          </div>
+            
         </div>
 
         <div class="nav-text">
@@ -165,6 +163,7 @@
       <button class="top"><img src="images/arrow-up-30.png" alt=""></button>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
