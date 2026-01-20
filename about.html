@@ -9,27 +9,28 @@
 <body>
     <header class="header">
       <div class="header-nav">
-        <img src="./images/Raydaar.png" alt="" />
+        <img src="./images/Raydaar.png" alt="" class="logo"/>
         <nav>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#"><span style="color: #1845e7;">About</span></a></li>
             <li><a href="index.html#services">Services</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="blog.html">Blog</a></li>
           </ul>
         </nav>
         </nav>
-        <button>Contact Us</button>
-        <!-- <img class="icon-menu" src="./images/icon-hamburger.svg" alt="" /> -->
+        <a href="contact.html" style="text-decoration: none;"><button class="contact-btn">Contact Us</button></a>
+        <img class="icon-menu" src="./images/menu.svg" alt="" />
       </div>
     </header>
 
     <section class="about-section">
-        <h1 class="heading" style="font-weight: bold; font-size: 5rem;">About RAYDAAR</h1>
+        <h1 class="heading">About RAYDAAR</h1>
 
         <div class="about-wrapper about-section-wrapper">
-          <div class="about-wrapper-left">            
+          <div class="about-wrapper-left">   
+            <h3>Who are we?</h3>         
             <p>
               Raydaar is a design and branding agency helping businesses navigate 
               the complexities of the digital world to reach their audience through high-impact and 
@@ -47,12 +48,13 @@
         </div>
 
         <div class="about-wrapper about-section-wrapper">
-          <div class="about-wrapper-left">            
+          <div class="about-wrapper-left">     
+            <h3>Our approach</h3>       
             <p>
               A brand is more than a logo; it is the soul of a business. At Raydaar, we 
               focus on the "why" behind your business and work together to uncover 
               the unique value proposition that sets you apart from the competition. </br>
-              We don't just design for the screen; we design for the person behind it.  For 
+              We don't just design for the screen, we design for the person behind it.  For 
               us at Raydaar, a "functional" experience means the user never has to guess what to do next.  
 
             </p>
@@ -64,27 +66,30 @@
         </div>
 
         <div class="about-wrapper about-section-wrapper card-container">
-          <div class="about-wrapper-left about-card">  
-            <img src="images/mission.gif" alt="">       
-            <h3>Our Mission</h3>   
-            <p style="margin-bottom: 0;">
-              The name "Raydaar" reflects our core mission: to help brands find their 
-              signal, track their audience, and navigate the market with precision. We 
-              don’t just create visuals, we build systems that communicate value, foster 
-              trust, and drive growth.  
-            </p>
-          </div>
+          <div class="card-statement">
+            <div class="about-wrapper-left about-card">  
+              <img src="images/mission.gif" alt="">       
+              <h3>Our Mission</h3>   
+              <p style="margin-bottom: 0;">
+                The name "Raydaar" reflects our core mission: to help brands find their 
+                signal, track their audience, and navigate the market with precision. We 
+                don’t just create visuals, we build systems that communicate value, foster 
+                trust, and drive growth.  
+              </p>
+            </div>
 
-          <div class="about-wrapper-right about-card" style="margin-bottom: 0;">
-            <img src="images/vision.gif" alt="">
-            <h3>Our Vision</h3>
-            <p style="margin-bottom: 0;">
-              Our Vision for the future as we look ahead, is to become a well recognized
-              agency that helps brands reach their utmost peak. We are committed to 
-              exploring new frontiers in digital interaction from AI-driven personalization
-              to immersive digital environments.
-            </p>
+            <div class="about-wrapper-right about-card" style="margin-bottom: 0;">
+              <img src="images/vision.gif" alt="">
+              <h3>Our Vision</h3>
+              <p style="margin-bottom: 0;">
+                Our Vision for the future as we look ahead, is to become a well recognized
+                agency that helps brands reach their utmost peak. We are committed to 
+                exploring new frontiers in digital interaction from AI-driven personalization
+                to immersive digital environments.
+              </p>
+            </div>
           </div>
+          
         </div>
 
         <div class="about-paragraph">
@@ -104,10 +109,12 @@
       <div class="footer-flex">
         <div class="footer-icons">
           <img class="footer-logo" src="./images/RAYDAAR White.png" alt="" />     
+          <div class="footer-res">
             <p>
               We create digital solutions that give </br> your brand great value and exposure.
             </p>     
-            <button onclick="window.location.href='index.html#services'">View Services</button>
+            <a href="#services"><button>View Services</button></a>
+          </div>    
         </div>
 
         <div class="nav-text">
@@ -157,6 +164,4 @@
 
    <script src="app.js"></script>
 </body>
-
-
 </html>
