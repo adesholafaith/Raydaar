@@ -1,54 +1,17 @@
-
-// const icon_menu = document.querySelector(".icon-menu");
-// const nav = document.querySelector(".header-nav nav");
-
-// icon_menu.onclick =() => {
-//     if (nav.style.transform == "translateX(0%)") {
-//         nav.style.transform = "translateX(-150%)";
-//         icon_menu.src = "./images/icon-hamburger.svg";
-//     } else {
-//         nav.style.transform = "translateX(0%)";
-//         icon_menu.src = "./images/icon-close.svg";
-//     }
-// };
-
 document.addEventListener("DOMContentLoaded", function () {
-  
-
-  const hamburger = document.querySelector(".hamburger");
+  // ===== Navigation ======
+const icon_menu = document.querySelector(".icon-menu");
 const nav = document.querySelector(".header-nav nav");
 
-let lastScroll = 0;
-
-// Hamburger click toggle
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  nav.classList.toggle("active");
-});
-
-// Hide on scroll
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
-
-  if (currentScroll > lastScroll) {
-    // scrolling down
-    hamburger.classList.add("hide");
-  } else {
-    // scrolling up
-    hamburger.classList.remove("hide");
-  }
-
-  lastScroll = currentScroll <= 0 ? 0 : currentScroll;
-});
-
-// Close menu when a link is clicked
-document.querySelectorAll(".header-nav nav ul li a").forEach(link => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    nav.classList.remove("active");
-  });
-});
-
+icon_menu.onclick =() => {
+    if (nav.style.transform == "translateX(0%)") {
+        nav.style.transform = "translateX(150%)";
+        icon_menu.src = "./images/menu.svg";
+    } else {
+        nav.style.transform = "translateX(0%)";
+        icon_menu.src = "./images/close.svg";
+    }
+};
 
   // ====== Text Rotator ======
   const texts = [
@@ -239,181 +202,180 @@ if (radarSection) {
 }
 
 
-  // ====== Typing effect ======
-  const element = document.getElementById("typeText");
-  if (element) {
-    const fullText = element.innerHTML.trim();
-    const clone = element.cloneNode(true);
-    clone.style.visibility = "hidden";
-    clone.style.position = "absolute";
-    clone.style.border = "none";
-    document.body.appendChild(clone);
-    const exactHeight = clone.offsetHeight;
-    document.body.removeChild(clone);
-    element.style.height = exactHeight + "px";
-    element.innerHTML = "";
-    let i = 0;
-    function type() {
-      element.innerHTML = fullText.slice(0, i);
-      i++;
-      if (i <= fullText.length) setTimeout(type, 30);
-    }
-    setTimeout(type, 1000);
+// ====== Typing effect ======
+const element = document.getElementById("typeText");
+if (element) {
+  const fullText = element.innerHTML.trim();
+  const clone = element.cloneNode(true);
+  clone.style.visibility = "hidden";
+  clone.style.position = "absolute";
+  clone.style.border = "none";
+  document.body.appendChild(clone);
+  const exactHeight = clone.offsetHeight;
+  document.body.removeChild(clone);
+  element.style.height = exactHeight + "px";
+  element.innerHTML = "";
+  let i = 0;
+  function type() {
+    element.innerHTML = fullText.slice(0, i);
+    i++;
+    if (i <= fullText.length) setTimeout(type, 30);
   }
+  setTimeout(type, 1000);
+}
 
-  // ====== Zoom on scroll ======
-  const zoomElements = document.querySelectorAll('.zoom-scroll');
-  if (zoomElements.length) {
-    const observer = new IntersectionObserver(entries => { 
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-    zoomElements.forEach(el => observer.observe(el));
-  }
+// ====== Zoom on scroll ======
+const zoomElements = document.querySelectorAll('.zoom-scroll');
+if (zoomElements.length) {
+  const observer = new IntersectionObserver(entries => { 
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  zoomElements.forEach(el => observer.observe(el));
+}
 
-  // ====== Radar labels ======
-  const wrapper = document.querySelector('.radar');
-  const labelsContainer = document.getElementById('radar-labels');
-  if (wrapper && labelsContainer) {
-    const firstRing = [
-      { text: "Strategy", angle: 80 },
-      { text: "Design", angle: 255 },
-      { text: "Solutions", angle: 75 },
-      { text: "Website Design", angle: 100 },
-      { text: "Alignment", angle: 105 },
-      { text: "Growth", angle: 115 },
-      { text: "Consulting", angle: 130 },
-    ];
+// ====== Radar labels ======
+const wrapper = document.querySelector('.radar');
+const labelsContainer = document.getElementById('radar-labels');
+if (wrapper && labelsContainer) {
+  const firstRing = [
+    { text: "Strategy", angle: 80 },
+    { text: "Design", angle: 255 },
+    { text: "Solutions", angle: 75 },
+    { text: "Website Design", angle: 100 },
+    { text: "Alignment", angle: 105 },
+    { text: "Growth", angle: 115 },
+    { text: "Consulting", angle: 130 },
+  ];
     const secondRing = [
-      { text: "Analytics", angle: 125 },
-      { text: "Creativity", angle: 245 },
-      { text: "Transformation", angle: 250 },
-      { text: "Branding", angle: 260 },
-      { text: "Marketing", angle: 270 },
-      { text: "Execution", angle: 290 }
-    ];
+    { text: "Analytics", angle: 125 },
+    { text: "Creativity", angle: 245 },
+    { text: "Transformation", angle: 250 },
+    { text: "Branding", angle: 260 },
+    { text: "Marketing", angle: 270 },
+    { text: "Execution", angle: 290 }
+  ];
 
-    function loadOrGenerateRandomness(key, labels) {
-      let saved = localStorage.getItem(key);
-      if (saved) return JSON.parse(saved);
-      const generated = labels.map(() => ({ wobble: (Math.random() * 20 - 10) * (Math.PI / 180), radiusOffset: 0.9 + Math.random() * 0.2 }));
-      localStorage.setItem(key, JSON.stringify(generated));
-      return generated;
-    }
-
-    const firstRingRandomness = loadOrGenerateRandomness("firstRingPositions", firstRing);
-    const secondRingRandomness = loadOrGenerateRandomness("secondRingPositions", secondRing);
-
-    function placeRing(labels, randomness, baseMultiplier) {
-      const rect = wrapper.getBoundingClientRect();
-      const radius = rect.width / 2;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      labels.forEach((label, i) => {
-        const r = randomness[i];
-        let angleRad = (label.angle - 90) * (Math.PI / 180);
-        angleRad += r.wobble;
-        const finalRadius = radius * baseMultiplier * r.radiusOffset;
-        const x = centerX + finalRadius * Math.cos(angleRad);
-        const y = centerY + finalRadius * Math.sin(angleRad);
-        const el = document.createElement("div");
-        el.textContent = label.text;
-        el.classList.add("radar-label");
-        el.style.animationDuration = `${1.5 + Math.random()}s`;
-        el.style.position = "absolute";
-        el.style.left = x + "px";
-        el.style.top = y + "px";
-        labelsContainer.appendChild(el);
-      });
-    }
-
-    function placeLabels() {
-      labelsContainer.innerHTML = "";
-      placeRing(firstRing, firstRingRandomness, 0.70);
-      placeRing(secondRing, secondRingRandomness, 0.60);
-    }
-
-    placeLabels();
-    window.addEventListener("resize", placeLabels);
+  function loadOrGenerateRandomness(key, labels) {
+    let saved = localStorage.getItem(key);
+    if (saved) return JSON.parse(saved);
+    const generated = labels.map(() => ({ wobble: (Math.random() * 20 - 10) * (Math.PI / 180), radiusOffset: 0.9 + Math.random() * 0.2 }));
+    localStorage.setItem(key, JSON.stringify(generated));
+    return generated;
   }
 
-  // ====== Scroll to top button ======
-  const btn = document.querySelector(".top");
-  if (btn) {
+  const firstRingRandomness = loadOrGenerateRandomness("firstRingPositions", firstRing);
+  const secondRingRandomness = loadOrGenerateRandomness("secondRingPositions", secondRing);
+
+  function placeRing(labels, randomness, baseMultiplier) {
+    const rect = wrapper.getBoundingClientRect();
+    const radius = rect.width / 2;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    labels.forEach((label, i) => {
+      const r = randomness[i];
+      let angleRad = (label.angle - 90) * (Math.PI / 180);
+      angleRad += r.wobble;
+      const finalRadius = radius * baseMultiplier * r.radiusOffset;
+      const x = centerX + finalRadius * Math.cos(angleRad);
+      const y = centerY + finalRadius * Math.sin(angleRad);
+      const el = document.createElement("div");
+      el.textContent = label.text;
+      el.classList.add("radar-label");
+      el.style.animationDuration = `${1.5 + Math.random()}s`;
+      el.style.position = "absolute";
+      el.style.left = x + "px";
+      el.style.top = y + "px";
+      labelsContainer.appendChild(el);
+    });
+  }
+
+  function placeLabels() {
+    labelsContainer.innerHTML = "";
+    placeRing(firstRing, firstRingRandomness, 0.70);
+    placeRing(secondRing, secondRingRandomness, 0.60);
+  }
+
+  placeLabels();
+  window.addEventListener("resize", placeLabels);
+}
+
+// ====== Scroll to top button ======
+const btn = document.querySelector(".top");
+if (btn) {
     btn.addEventListener("click", function () {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-
-
-
-
-
-const cards = document.querySelectorAll("#cards-section .card");
-const section = document.getElementById("cards-section");
-const totalCards = cards.length;
-
-window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-
-    // Scroll progress inside section (0 to 1)
-    let progress = (scrollTop - sectionTop) / sectionHeight;
-    progress = Math.max(0, Math.min(progress, 1));
-
-    // Which card should be active
-    const index = Math.floor(progress * totalCards);
-
-    cards.forEach((card, i) => {
-        if (i === index) {
-            card.classList.add("active");
-        } else {
-            card.classList.remove("active");
-        }
-    });
-});
-
+  });
+}
 
 
 //EmailJS for form submission
-    (function() {
-        emailjs.init("rxrXGaa54jshSE5q1");
-    })();
+(function() {
+  emailjs.init("rxrXGaa54jshSE5q1");
+})();
 
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault();
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-    emailjs.sendForm("service_xox84yg", "template_7y36qlp", this)
-        .then(() => {
-        alert("Message sent successfully!");
-        }, (error) => {
-        alert("Failed to send message: " + JSON.stringify(error));
-        });
-    });
+  emailjs.sendForm("service_xox84yg", "template_7y36qlp", this)
+  .then(() => {
+  alert("Message sent successfully!");
+}, (error) => {
+  alert("Failed to send message: " + JSON.stringify(error));
+});
+});
 
-
-const navBtn = document.querySelector(".nav-btn");
-
-const swapNavBtn = () => {
-  if (window.innerWidth <= 600) {
-    navBtn.classList.add("hamburger-icon");
-    navBtn.textContent = " ";
-  } else {
-    navBtn.classList.remove("hamburger");
-    navBtn.textContent = "Contact";
-  }
-};
-
-swapNavBtn();
-window.addEventListener("resize", () => swapNavBtn());
+}); // end of DOMContentLoaded
 
 
-}); // end DOMContentLoaded
+const container = document.querySelector('.location-flex');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(
+  40,
+  container.offsetWidth / container.offsetHeight,
+  0.1,
+  1000
+);
+camera.position.z = 3;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(container.offsetWidth, container.offsetHeight);
+container.appendChild(renderer.domElement);
+
+const geometry = new THREE.SphereGeometry(0.7, 64, 64);
+const textureLoader = new THREE.TextureLoader();
+
+const texture = textureLoader.load(
+  'https://threejs.org/examples/textures/land_ocean_ice_cloud_2048.jpg'
+);
+
+const material = new THREE.MeshStandardMaterial({ map: texture });
+const globe = new THREE.Mesh(geometry, material);
+scene.add(globe);
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(5, 3, 5);
+scene.add(directionalLight);
+
+function animate() {
+  requestAnimationFrame(animate);
+  globe.rotation.y += 0.002;
+  renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener('resize', () => {
+  camera.aspect = container.offsetWidth / container.offsetHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(container.offsetWidth, container.offsetHeight);
+});
 
