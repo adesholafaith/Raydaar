@@ -1342,6 +1342,10 @@ footer {
         padding-top: 0;
     }
 
+    .hero-image {
+        width: 340px;
+    }
+
     .header-main-left p {
         line-height: 1.5rem;
     }
@@ -1394,6 +1398,7 @@ footer {
 
     }
 }
+
 
 
 
