@@ -1121,6 +1121,7 @@ footer {
         gap: 1.5rem;
         margin-top: 1rem;
         width: 100%;
+        border-radius: 10px;
     }
     
     .card-flex h2 {
@@ -1337,4 +1338,67 @@ footer {
     }
 } 
 
+
+
+@media (max-width: 430px) {
+    .hero-image {
+        width: 310px;
+    }
+
+    .hero {
+        padding-top: 0;
+    }
+
+    .header-main-left p {
+        line-height: 1.5rem;
+    }
+
+    .header-nav nav ul li {
+        margin: 3rem 7rem;
+    }
+
+    .border-line {
+        border-bottom: 1.5px dotted var(--dark_blue);
+        margin: 0 9rem;
+    }
+
+    .about-wrapper-left p {
+        padding: 0;
+    }
+
+    .card {
+        padding: 0; 
+        margin: 0; 
+        gap: 0;
+    }
+
+    #radar-labels div {
+        font-size: .8rem;
+        transform: translate(-53%, -141%);
+    }
+
+    .article-content > img {
+    height: 14rem;
+    }
+
+    .article-container {
+    grid-template-columns: repeat(1, 2fr);
+    } 
+
+    button {
+    padding: 1rem 8rem;
+    font-size: .8rem;
+    }
+
+    .top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .footer-res {
+        flex-direction: column;
+        align-items: start;
+
+    }
+}
 
