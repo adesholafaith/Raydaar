@@ -1025,6 +1025,7 @@ footer {
     
     .header-main-left {
         margin: 0;
+        margin-top: 2rem;
     }
     
     .header-main-right {
@@ -1393,6 +1394,7 @@ footer {
 
     }
 }
+
 
 
 
