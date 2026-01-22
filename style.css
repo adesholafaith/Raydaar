@@ -64,7 +64,6 @@ p {
 
 .hero {
     padding-bottom: 3rem;
-    height: 80vh;
 }
 
 .header-nav {
@@ -1018,10 +1017,6 @@ footer {
         display: none;
     }
     
-    .hero {
-        height: 86vh;
-    }
-    
     .header-main {
         flex-direction: column-reverse;
         padding-left: 0;
@@ -1401,4 +1396,5 @@ footer {
 
     }
 }
+
 
